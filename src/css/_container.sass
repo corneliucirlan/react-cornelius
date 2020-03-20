@@ -1,0 +1,74 @@
+.header
+    align-items: left
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    z-index: 0
+    margin: 0 4rem
+
+
+
+
+
+
+@include media-breakpoint-up(md)
+    .header
+        align-items: center
+        flex-direction: row
+
+
+.container-fluid
+    margin: auto
+    max-width: $max-content
+    padding: 3rem 0
+    width: 100%
+
+.navbar-brand
+    z-index: 2
+
+.top
+    fill: $text-color
+    position: absolute
+    right: 0
+    top: 0
+    z-index: 1
+
+.bottom
+    fill: $text-color
+    position: absolute
+    left: 0
+    // footer height: 366
+    bottom: calc(367px - 150px)
+    z-index: 0
+
+.footer
+    position: relative
+    background: $text-color
+    height: calc(368px - 150px)
+    margin-top: 200px
+    padding: 3rem 0
+    color: $bg-color
+
+    .container-fluid
+        max-width: $max-content
+        z-index: 2
+        transform: translateY(-150px)
+
+        .contact-wrapper
+            margin-bottom: 6rem
+
+            .contact-text
+                margin-bottom: 3rem
+
+        .row
+            margin: 0
+
+        .nav-footer
+            align-items: center
+            display: flex
+            justify-content: space-between
+
+
+.header,
+.main
+    margin-bottom: 10 * $spacer

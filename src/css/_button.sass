@@ -1,0 +1,14 @@
+.btn
+    box-shadow: $box-shadow
+    font:
+        family: 'Oswald'
+        size: 2rem
+    text-transform: uppercase
+
+    &.btn-primary
+        // button-variant($background, $border, $hover-background, $hover-border, $active-background, $active-border)
+        @include button-variant($bg-color, $bg-color, $hover-color, $hover-color, $hover-color, $hover-color)
+        color: $text-color
+
+    // &.btn-outline-primary
+    //     @include button-outline-variant($text-color, $hover-color, $bg-color, $hover-color)
