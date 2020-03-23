@@ -10,8 +10,8 @@ const IconSocial = props => {
     }
 
     return (
-        <li className='icon-container'>
-        	<a onClick={ClickHandler} href={props.href} title={props.title}>
+        <li className='social-icon'>
+        	<a onClick={ClickHandler} href={props.href} title={props.title} rel='noopener noreferrer'>
                 <Icon name={props.name} />
         	</a>
         </li>

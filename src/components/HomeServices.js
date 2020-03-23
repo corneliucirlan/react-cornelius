@@ -6,7 +6,7 @@ import homeServices from './data/services'
 const HomeServices = () => {
 
     return (
-        <section>
+        <section className='section'>
             <h2 className='home-h2'>How I can help you</h2>
 
             <div className='row'>

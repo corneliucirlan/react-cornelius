@@ -8,10 +8,7 @@ const Button = props => {
     }
 
     return (
-        <div>
-            {/* <button onClick={ClickHandler} className='btn btn-outline-primary' title={props.title}>{props.value}</button> */}
-            <button onClick={ClickHandler} className='btn btn-primary' title={props.title}>{props.value}</button>
-        </div>
+        <button onClick={ClickHandler} className='btn btn-primary' title={props.title}>{props.value}</button>
     )
 }
 

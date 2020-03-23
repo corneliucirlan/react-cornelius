@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import { isMobile } from 'react-device-detect'
+import useDimensions from 'react-use-dimensions'
 
 import Button from './Button'
 import icons from './data/socialMediaData'
@@ -6,21 +8,7 @@ import IconSocial from './icons/IconSocial'
 import IconLogo from './icons/IconLogo'
 
 const Footer = () => {
-
-/*
-
-    Update footer height on window resize
-    Update bottom position of svg based on footer height minus 1
-    Translate footer context based on available space
-
-
-    1920px
-np    footer: 368 (368 - 150 after transform)
-    footer margin top: 200
-    svg bottom: footer - 1
-
-*/
-
+   
     // Divider
     const divider = 6.43
 
@@ -30,8 +18,22 @@ np    footer: 368 (368 - 150 after transform)
     // Element width
     let [width, setWidth] = useState(baseWidth)
 
-    // Element height
-    let [height, setHeight] = useState(baseWidth / divider)
+    // Element svgHeight
+    let [svgHeight, setSVGHeight] = useState(baseWidth / divider)
+
+    const [ref, {height}] = useDimensions()
+
+    const fHeight = 378
+    const translateY = 150
+
+    let footerStyles = !isMobile ? {
+        marginTop: translateY + 'px',
+        height:fHeight - translateY + 'px'
+    } : null
+    let transleteFooter = !isMobile ? {
+        transform: 'translateY(-150px)'
+    } : null
+    
 
     // Listen for any change
     useEffect(() => {
@@ -40,11 +42,13 @@ np    footer: 368 (368 - 150 after transform)
         const handleResize = () => {
 
             // New Width
-            let newWidth = window.innerWidth
+            // eslint-disable-next-line no-restricted-globals
+            let newWidth = isMobile ? screen.width : window.innerWidth
 
             // Update State values
             setWidth(newWidth)
-            setHeight(newWidth / divider)
+            setSVGHeight(newWidth / divider)
+
         }
 
         // Resize on first load if needed
@@ -62,29 +66,31 @@ np    footer: 368 (368 - 150 after transform)
     })
 
     return (
-        <footer className='footer'>
+        <footer className='footer' ref={ref} style={footerStyles}>
+        {/* <footer className='footer' ref={ref}> */}
 
-            <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 1920 298.375" className='bottom'>
+            <svg xmlns="http://www.w3.org/2000/svg" width={width} height={svgHeight} viewBox="0 0 1920 298.375" className='footer-svg' style={{bottom: height  + 'px'}}>
                 <path d="M0,0H1920V298.375L0,0Z" transform="translate(1920 298.375) rotate(180)" />
             </svg>
 
-            <div className='container-fluid'>
+            <div className='container-fluid' style={transleteFooter}>
+            {/* <div className='container-fluid'> */}
                 <div className='contact-wrapper'>
-                    <div className='row contact=text'>
-                        <div className='col-4'>
+                    <div className='contact=text'>
+                        <div className='col-12 col-md-6 col-lg-4'>
                             <p className='contact-text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam metus ipsum, malesuada sed volutpat id, dignissim </p>
                         </div>
                     </div>
 
-                    <div className='row contact-btn'>
-                        <div className='col-4'>
+                    <div className='contact-btn'>
+                        <div className='col-12 col-md-6 col-lg-4'>
                             <Button href='mailto:corneliu@corneliucirlan.com' title='Send a message' value="Let's work together" />
                         </div>
                     </div>
                 </div>
 
                 <div className='nav-footer'>
-                    <ul className='nav icons-wrapper'>
+                    <ul className='social-icons social-icons-footer'>
                         {icons.map(icon => <IconSocial key={icon.name} name={icon.name} href={icon.url} title={icon.title} />)}
                     </ul>
                     <IconLogo class='icon-logo-footer' />

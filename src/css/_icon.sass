@@ -1,52 +1,47 @@
-
-    
-.icons-wrapper
+// Social icons
+.social-icons
     display: flex
     justify-content: space-between
+    width: 100%
+    flex-wrap: wrap
     list-style: none
     z-index: 2
+    padding: 0
+    overflow: hidden
 
-    .icon-container
-        margin: 0 1.5 * $spacer
- 
-        &:first-child
-            margin-left: 0
+    @include media-breakpoint-up(md)
+        width: auto
+        padding: 0
 
-        &:last-child
-            margin-right: 0
+        .social-icon
+            margin: 0 1.5 * $spacer
+    
+    &.social-icons-header
+        @include media-breakpoint-up(lg)
+            display: none
 
+        @include media-breakpoint-up(xl)
+            display: flex
+
+    &.social-icons-footer
+        margin-bottom: 3rem
+        padding: 0 1.5rem
+
+        @include media-breakpoint-up(md)
+            padding: 0
+
+
+// Icons
 .icon
     @include transition
     fill: $text-color
-    height: 2.4 * $font-size-base
-    width: 4 * $font-size-base
-    // z-index: 3
-
-    &.icon-logo
-        fill: $text-color
-        margin: 0
-        height: 8 * $font-size-base
-        max-width: 8 * $font-size-base
-        width: 100%
-
-        use
-            &.logo
-                color: $current-color
-
-        svg
-            path
-                all: inherit
+    height: 2 * $font-size-base
+    width: 3 * $font-size-base
     
-        &.icon-logo-footer
-            fill: $bg-color
 
-            use
-                &.logo
-                    color: $bg-color
-
-            svg
-                path
-                    all: inherit
+    @include media-breakpoint-up(xl)
+        display: initial
+        fill: $bg-color
 
     &:not(.icon-logo):hover
         fill: $hover-color
@@ -54,14 +49,40 @@
     &.icon-service:hover
         fill: inherit
 
-@include media-breakpoint-up(md)
-    .icon
-        fill: $bg-color
+    // Logo icon
+    &.icon-logo
+        fill: $text-color
+        margin-bottom: 2 * $spacer
+        height: 6.4 * $font-size-base
+        max-width: 6.4 * $font-size-base
+        width: 100%
+        @include current-color($current-color)
+         
+        @include media-breakpoint-up(md)
+            margin-bottom: 4rem
+            height: 8 * $font-size-base
+            max-width: 8 * $font-size-base
+            width: 100%
 
+        @include media-breakpoint-up(lg)
+            display: initial
+    
+        // Logo footer
+        &.icon-logo-footer
+            fill: $bg-color
+            @include current-color($bg-color)
 
-.home-service
-    .icon
+    // Services icons
+    .home-service &
         fill: $black
-        height: 4rem
-        max-width: 5rem
+        height: 3rem
+        max-width: 4rem
         width: auto
+
+        @include media-breakpoint-up(md)
+            height: 4rem
+            max-width: 5rem
+
+    // Footer Icons
+    .footer &
+        fill: $white
