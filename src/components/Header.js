@@ -42,7 +42,7 @@ const Header = () => {
         }
 
         // Resize on first load if needed
-        if (window.innerWidth !== widthFHD)
+        if (window.innerWidth !== widthFHD || isMobile)
             handleResize()
         
         // Add resize event listener        

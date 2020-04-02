@@ -1,19 +1,16 @@
 import React from 'react'
 
-import Header from './components/Header.js'
-import Main from './components/Main.js'
-import Footer from './components/Footer.js'
+import SinglePage from './components/singlePage'
 
 import './App.sass'
 
-const App = () => (
-    <div className="App">
-        <div className='container-fluid'>
-            <Header />
-            <Main />
+const App = () => {
+
+    return (
+        <div className="App">
+            <SinglePage />
         </div>
-        <Footer />
-    </div>
-)
+    )
+}
 
 export default App;

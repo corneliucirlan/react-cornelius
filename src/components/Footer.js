@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import React, { useState, useEffect } from 'react'
 import { isMobile } from 'react-device-detect'
 import useDimensions from 'react-use-dimensions'
@@ -8,7 +9,7 @@ import IconSocial from './icons/IconSocial'
 import IconLogo from './icons/IconLogo'
 
 const Footer = () => {
-   
+
     // Divider
     const divider = 6.43
 
@@ -24,16 +25,7 @@ const Footer = () => {
     const [ref, {height}] = useDimensions()
 
     const fHeight = 378
-    const translateY = 150
-
-    let footerStyles = !isMobile ? {
-        marginTop: translateY + 'px',
-        height:fHeight - translateY + 'px'
-    } : null
-    let transleteFooter = !isMobile ? {
-        transform: 'translateY(-150px)'
-    } : null
-    
+    const translateY = fHeight / 2
 
     // Listen for any change
     useEffect(() => {
@@ -42,17 +34,15 @@ const Footer = () => {
         const handleResize = () => {
 
             // New Width
-            // eslint-disable-next-line no-restricted-globals
             let newWidth = isMobile ? screen.width : window.innerWidth
-
+            
             // Update State values
             setWidth(newWidth)
             setSVGHeight(newWidth / divider)
-
         }
 
         // Resize on first load if needed
-        if (window.innerWidth !== baseWidth)
+        if (window.innerWidth !== baseWidth || isMobile)
             handleResize()
 
         // Add resize event listener        
@@ -66,24 +56,22 @@ const Footer = () => {
     })
 
     return (
-        <footer className='footer' ref={ref} style={footerStyles}>
-        {/* <footer className='footer' ref={ref}> */}
+        <footer className='footer' ref={ref} style={ !isMobile ? { marginTop: translateY + 'px', height: `${fHeight - translateY}px` } : null}>
 
             <svg xmlns="http://www.w3.org/2000/svg" width={width} height={svgHeight} viewBox="0 0 1920 298.375" className='footer-svg' style={{bottom: height  + 'px'}}>
                 <path d="M0,0H1920V298.375L0,0Z" transform="translate(1920 298.375) rotate(180)" />
             </svg>
 
-            <div className='container-fluid' style={transleteFooter}>
-            {/* <div className='container-fluid'> */}
+            <div className='container-fluid' style={!isMobile ? { transform: 'translateY(-189px)' } : null}>
                 <div className='contact-wrapper'>
                     <div className='contact=text'>
-                        <div className='col-12 col-md-6 col-lg-4'>
+                        <div className='col-xs-12 offset-md-3 col-md-6 offset-xl-0 col-xl-4'>
                             <p className='contact-text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam metus ipsum, malesuada sed volutpat id, dignissim </p>
                         </div>
                     </div>
 
                     <div className='contact-btn'>
-                        <div className='col-12 col-md-6 col-lg-4'>
+                        <div className='col-xs-12 offset-md-3 col-md-6 offset-xl-0 col-xl-4'>
                             <Button href='mailto:corneliu@corneliucirlan.com' title='Send a message' value="Let's work together" />
                         </div>
                     </div>
