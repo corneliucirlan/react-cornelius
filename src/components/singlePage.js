@@ -20,15 +20,19 @@ const SinglePage = () => {
     // FHD width
     const widthFHD = 1920
     
-    // Element width
+    // SVG width
     let [svgWidth, setSVGWidth] = useState(baseWidth)
     
-    // Element height
+    // SVG height
     let [svgHeight, setSVGHeight] = useState(baseWidth / dividerTop)
     
+    // Set footer as reference and get height    
     const [ref, { height }] = useDimensions()
-    // const footerSVGTop = isMobileOnly ? {top: `${height + 30}px`} : {top: 'inherit'}
+
+    // Footer SVG Top position
     const footerSVGTop = isMobileOnly ? {top: `${height - svgHeight}px`} : {top: 'inherit'}
+
+    // Footer height
     const footerHeight = screen.width < 576 ? `${svgHeight + 60}px` : `${svgHeight}px`
 
     // Listen for events
@@ -41,7 +45,7 @@ const SinglePage = () => {
             let newWidth = (isMobile) ? screen.width : window.innerWidth
 
             // SVG should be full width
-            if (newWidth <= 1725) {
+            if (newWidth <= baseWidth) {
                     setSVGWidth(newWidth)
                     setSVGHeight(newWidth / dividerTop)
                 }
