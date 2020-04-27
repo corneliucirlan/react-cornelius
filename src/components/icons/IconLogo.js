@@ -13,7 +13,7 @@ const IconLogo = props => {
     }
 
     return (
-        <a className='navbar-brand' href='/' onClick={ClickHandler}>
+        <a className='navbar-brand' href='/' aria-label='Corneliu C&icirc;rlan' onClick={ClickHandler}>
             <Icon name='logo' class={props.class} />
         </a>
     )
