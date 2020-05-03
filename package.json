@@ -4,14 +4,14 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.1",
-    "@testing-library/user-event": "^7.2.1",
-    "react": "^16.13.0",
-    "react-device-detect": "^1.11.14",
-    "react-dom": "^16.13.0",
+    "@testing-library/jest-dom": "^5.5.0",
+    "@testing-library/react": "^10.0.4",
+    "@testing-library/user-event": "^10.1.0",
+    "react": "^16.13.1",
+    "react-device-detect": "^1.12.1",
+    "react-dom": "^16.13.1",
     "react-ga": "^2.7.0",
-    "react-scripts": "3.4.0",
+    "react-scripts": "3.4.1",
     "react-use-dimensions": "^1.2.1"
   },
   "scripts": {
@@ -40,6 +40,6 @@
   "devDependencies": {
     "bootstrap": "^4.4.1",
     "gh-pages": "^2.2.0",
-    "node-sass": "^4.13.1"
+    "node-sass": "^4.14.0"
   }
 }
