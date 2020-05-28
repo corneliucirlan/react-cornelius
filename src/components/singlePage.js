@@ -9,6 +9,7 @@ import IconLogo from './icons/IconLogo'
 import BackdropSVG from './backdropSVG'
 import Button from './Button'
 import homepage from './data/homepage'
+import Metadata from './Metadata'
 
 const SinglePage = () => {
 
@@ -74,6 +75,9 @@ const SinglePage = () => {
 
     return (
         <div className='wrapper'>
+
+            <Metadata />
+
             <div className='container-fluid' ref={ref}>
                 <header className='header'>
                     <BackdropSVG width={svgWidth} height={svgHeight} className='header-svg' />
