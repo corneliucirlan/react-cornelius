@@ -1,2 +1,4 @@
-https://corneliucirlan.netlify.app/* https://www.corneliucirlan.com/:splat 301!
- 
+[[redirects]]
+  from = "https://corneliucirlan.netlify.app"
+  to = "https://www.corneliucirlan.com"
+  status = 301
